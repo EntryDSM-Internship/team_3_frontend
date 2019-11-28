@@ -1,0 +1,107 @@
+.main {
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    background-color: #bababa;
+  .signUp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 650px;
+    border-radius: 16px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    .back {
+      cursor: pointer;  
+      float: left;
+      margin: 16px 0 0 16px;
+      visibility: inherit;
+    }
+    .skip {
+      cursor: pointer;
+      float: right;
+      margin: 16px 16px 0 0;
+      visibility: hidden;
+    }
+    .signInfo > div {
+      display: flex;
+      flex-direction: column;
+      width: 520px;
+      height: 507px;
+      margin: 96px 40px 0 40px;
+      h3 {
+          margin: 0 0 8px 0;
+          font-size: 24px;
+          letter-spacing: 0.72px;
+          height: 26px;
+          line-height: 27px;
+      }
+      h5 {
+          margin: 0;
+          height: 18px;
+          font-size: 16px;
+          line-height: 18px;
+          font-weight: normal;
+          margin-bottom: 48px;
+      }
+    }
+    
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 15px;
+      width: 570px;
+      height: 32px;
+      .prevBtn {
+        font-weight: bold;
+        background-color: #737be1;
+        cursor: pointer;
+        outline: none;
+        padding: 0;
+        border: none;
+        width: 64px;
+        height: 32px;
+        border-radius: 15px;
+        border: solid 1px #737be1;
+        color:#ffffff;
+      }
+      .nextBtn {
+        font-weight: bold;
+        background-color: #737be1;
+        cursor: pointer;
+        outline: none;
+        padding: 0;
+        border: none;
+        width: 64px;
+        height: 32px;
+        border-radius: 15px;
+        border: solid 1px #737be1;
+        color:#ffffff;
+      }
+      .page-state {
+        display: flex;
+        width: 350px;
+        height: auto  ;
+        background: #f5f8fa;
+        
+        div {
+          width: 50px;  
+          height: 8px;
+          background-color: #f5f8fa;;
+          transition: 0.4s;
+          &.on {
+            background-color: #505bda;
+          }
+        }        
+      }
+      .hidden {
+        visibility: hidden;
+      }
+    }
+  }
+  
+}
