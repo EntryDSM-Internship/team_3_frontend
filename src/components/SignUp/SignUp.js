@@ -70,6 +70,7 @@ const SignUp = () => {
               authcode: code,
               email: info.email
             }
+            //KJHBNMJH
           }).then(res => {
             document.cookie = `access_token=${res.data.token}`;
               setPage(page + 1);
