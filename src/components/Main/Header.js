@@ -1,7 +1,26 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+const categories = [
+    {
+        name: 'home',
+        text: '홈',
+    },
+    {
+        name: 'search',
+        text: '검색',
+    },
+    {
+        name: 'profile',
+        text: '프로필',
+    },
+];
+const Category = styled(NavLink)`
+    &.active {
+        border-bottom: 4px solid #505BDA;
+    }
+`;
 
 const Wrapper = styled.div`
     border-bottom: 2px solid #505BDA;  
@@ -31,7 +50,8 @@ const Wrapper = styled.div`
             display: flex;
             flex-direction: row;
             align-items: center;
-            li {    
+            a { 
+                display: inline-block;
                 width: 74px;
                 height: 57px;
                 list-style: none;
@@ -39,19 +59,12 @@ const Wrapper = styled.div`
                 line-height: 60px;
                 margin: 0;
                 box-sizing: border-box;
-                &.under_line {
-                    border-bottom: 4px solid #505BDA;
-                }
-                a {
-                    height: 18px;
-                    font-weight: bold;
-                    font-size: ;
-                    text-decoration: none;
-                    color: #000000; 
-                }
+                font-weight: bold;
+                text-decoration: none;
+                color: #000000; 
             }
         }
-    }   
+    }
 `;
 
 const Header = () => {
@@ -62,15 +75,15 @@ const Header = () => {
                     <img src={require("../../img/Main/MainIcon.png")} alt="아이콘" />
                 </div>
                 <ul>
-                    <li className="under_line">
-                        <Link to="/main">홈</Link>
-                    </li>
-                    <li>
-                        <Link to="/search">검색</Link>
-                    </li>
-                    <li>
-                        <Link to="/profile">프로필</Link>
-                    </li>
+                    {categories.map(c => (
+                        <Category
+                            key={c.name}
+                            activeClassName="active"
+                            to={c.name}
+                        >
+                            {c.text}
+                        </Category>
+                    ))}
                 </ul>
             </main>
         </Wrapper>

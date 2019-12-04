@@ -6,7 +6,7 @@ import { Route } from 'react-router-dom';
 const App = () => {
   return (
     <>
-      <Route exact path="/main" component={Main} />
+      <Route exact path="/:category?" component={Main} />
       <Route exact path="/signup" component={SignUp}/>
     </>
   );
