@@ -8,7 +8,7 @@ import { Route } from 'react-router-dom';
 const App = () => {
   return (
     <>
-      <Route exact path="/:category?" component={Main} />
+      <Route exact path="/main/:category?" component={Main} />
       <Route exact path="/signup" component={SignUp}/>
       <Route exact path="/login" component={Login} />
     </>
