@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import Icon from '../../img/Main/MainIcon.png';
 
 const categories = [
     {
@@ -39,9 +40,11 @@ const Wrapper = styled.div`
             display: flex;
             flex-direction: row;
             align-items: center;
-            img {
+            a {
+                img {
                 width: 28px;
                 height: 27px;
+                }
             }
         }
         ul {
@@ -72,7 +75,9 @@ const Header = () => {
         <Wrapper>
             <main>
                 <div>
-                    <img src={require("../../img/Main/MainIcon.png")} alt="아이콘" />
+                    <NavLink to="/home">
+                        <img src={Icon} alt="아이콘" />
+                    </NavLink>
                 </div>
                 <ul>
                     {categories.map(c => (
