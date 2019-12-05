@@ -1,5 +1,9 @@
 import React from 'react';
-import LandingWrapper from '../../styles/Landing';
+import { Link } from 'react-router-dom';
+import { LandingWrapper } from '../../styles/Landing';
+import messeage from '../../img/Landing/messeage.png';
+import people from '../../img/Landing/people.png';
+import search from '../../img/Landing/search.png';
 
 const Landing = () => {
     return (
@@ -7,6 +11,20 @@ const Landing = () => {
             <div>
                 <main>
                     <h1>지금 세계 곳곳에서 무슨 일이<br/>일어나고 있는지 확인하세요.</h1>                    
+                    <div>
+                        <img src={search} alt="검색" />
+                        <p>다른 사람을 찾아보세요.</p>
+                    </div>
+                    <div>
+                        <img src={people} alt="사람" />
+                        <p>자신의 일을 사람들과 함께 나눠보세요.</p>
+                    </div>
+                    <div>
+                        <img src={messeage} alt="메시지" />
+                        <p>다른 사람의 일에 자신의 의견을 올려보세요.</p>
+                    </div>
+                    <Link to="/login" className="login">로그인</Link>
+                    <Link to="/signup" className="sign-up">가입하기</Link>
                 </main>
             </div>
         </LandingWrapper>
