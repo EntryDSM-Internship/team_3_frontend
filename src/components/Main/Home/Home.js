@@ -1,6 +1,7 @@
 import React from 'react';
 import { HomeWrapper, MainWrapper, BoardWrapper, SideWrapper } from './styles';
 import BoardItem from './BoardItem';
+import ViewMore from './ViewMore';
 
 const Home = () => {
     return (
@@ -10,7 +11,7 @@ const Home = () => {
                     <BoardItem />
                 </BoardWrapper>
                 <SideWrapper>
-                    
+                    <ViewMore />
                 </SideWrapper>
             </MainWrapper>
         </HomeWrapper>

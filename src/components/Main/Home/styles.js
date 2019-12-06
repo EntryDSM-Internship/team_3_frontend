@@ -9,6 +9,7 @@ export const HomeWrapper = styled.div`
 `;
 
 export const MainWrapper = styled.div`
+    display: flex;
     width: auto;
     height: 100%;
     max-width: 1140px;
@@ -171,6 +172,59 @@ export const ContentsWrapper = styled.div`
         }
         div + div {
             margin-left: 150px;
+        }
+    }
+`;
+
+export const ViewMoreBlock = styled.div`
+    width: 360px;
+    height: 405px;
+    margin: 60px 15px 0 45px;
+    padding: 15px 0;
+    border-radius: 16px;
+    background-color: #dbdeff;
+    header { 
+        padding: 0 15px;
+        height: 37px;
+        border-bottom: 2px solid rgba(214, 230, 224, 1);
+        box-sizing: border-box;
+        h1 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+    ul {
+        padding: 15px;
+        margin: 0;
+        li {
+            height: 50px;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            h2 {
+                margin: 0;
+                width: 79px;
+                height: 18px;
+                font-size: 14px;
+                line-height: 1.13;
+                letter-spacing: 0;
+                text-align: left;
+                color: #3b3b3b;
+            }
+            img {
+                cursor: pointer;
+                width: 20px;
+                height: 20px;
+                background-size: contain;
+            }
+        }
+        li ~ li {
+            border-top: 2px solid rgba(214, 230, 224, 1);
+        }
+        div {   
+            display: none;
         }
     }
 `;
