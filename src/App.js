@@ -9,7 +9,7 @@ const App = () => {
     <>
       <Route exact path="/main/:category?" component={Main} />
       <Route exact path="/signup" component={SignUp}/>
-      <Route exact path="/landing" component={Landing} />
+      <Route exact path={["/landing", "/"]} component={Landing} />
     </>
   );
 };
