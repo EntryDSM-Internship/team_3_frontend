@@ -108,14 +108,6 @@ export const ShareBoardWrapper = styled.div`
     }
 `;
 
-export function adjustHeight() {
-    var textEle = document.querySelector('textarea');
-    textEle.style.height = 'auto';      
-    var textEleHeight = textEle.scrollHeight;
-    console.log(textEleHeight);
-    textEle.style.height = `${textEleHeight - 19}px`;
-};
-
 export const ContentsWrapper = styled.div`
     width: 856px;
     min-height: 115px;
