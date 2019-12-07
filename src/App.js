@@ -2,6 +2,8 @@ import React from 'react';
 import SignUp from './components/SignUp/SignUp';
 import Main from './components/Main/Main';
 import Landing from './components/Landing/Landing';
+import Login from './components/Login/Login';
+
 import { Route } from 'react-router-dom';
 
 const isLoginIng = true;
