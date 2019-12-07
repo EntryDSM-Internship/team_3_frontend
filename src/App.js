@@ -5,7 +5,7 @@ import Landing from './components/Landing/Landing';
 
 import { Route } from 'react-router-dom';
 
-const isLoginIng = true;
+const isLoginIng = false;
 const App = () => {
   return (
     <>
