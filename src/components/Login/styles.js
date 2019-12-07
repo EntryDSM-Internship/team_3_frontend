@@ -6,7 +6,9 @@ export const LoginWrapper = styled.div`
     margin: 0px;
     padding: 0px;
     background-color: #bababa;
-    > div {
+`;
+
+export const ModalBlock = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
@@ -21,57 +23,7 @@ export const LoginWrapper = styled.div`
       float: left;
       margin: 16px 0 0 16px;
       visibility: inherit;
-    }
-    main {
-      display: flex;
-      flex-direction: column;
-      width: 520px;
-      height: 477px;
-      margin: 96px 40px 0 40px;
-      h3 {
-        margin: 0 0 8px 0;
-        font-size: 24px;
-        letter-spacing: 0.72px;
-        height: 26px;
-        line-height: 27px;
-      }
-      h5 {
-        margin: 0;
-        height: 18px;
-        font-size: 16px;
-        line-height: 18px;
-        font-weight: normal;
-        margin-bottom: 48px;
-      }
-      .sentence-state {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 0;
-        width: 100%;
-        height: 29px;
-        margin-bottom: 4px;
-        border: none;    
-        box-sizing: border-box;
-        outline: none;
-        background-color: transparent;
-        > span {
-            display: inline-block;
-            color: #e84444;
-            font-size: 12px;
-            margin-bottom: 16px;
-            line-height: 24px;
-        }
-        p {
-            margin: 0px 4px 0 0;
-            float: right;
-            color: #707070;
-            font-size: 14px;
-            line-height: 24px;
-        }
-      }
-    }
-    
+    }    
     footer {
       display: flex;
       justify-content: center;
@@ -91,5 +43,54 @@ export const LoginWrapper = styled.div`
         font-size: 14px;
       }
     }
-  }
+`;
+
+export const LoginBlock = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 520px;
+    height: 477px;
+    margin: 96px 40px 0 40px;
+    h3 {
+      margin: 0 0 8px 0;
+      font-size: 24px;
+      letter-spacing: 0.72px;
+      height: 26px;
+      line-height: 27px;
+    }
+    h5 {
+      margin: 0;
+      height: 18px;
+      font-size: 16px;
+      line-height: 18px;
+      font-weight: normal;
+      margin-bottom: 48px;
+    }
+    .sentence-state {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0;
+      width: 100%;
+      height: 29px;
+      margin-bottom: 4px;
+      border: none;    
+      box-sizing: border-box;
+      outline: none;
+      background-color: transparent;
+      > span {
+          display: inline-block;
+          color: #e84444;
+          font-size: 12px;
+          margin-bottom: 16px;
+          line-height: 24px;
+      }
+      p {
+          margin: 0px 4px 0 0;
+          float: right;
+          color: #707070;
+          font-size: 14px;
+          line-height: 24px;
+      }
+    }
 `;

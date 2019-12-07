@@ -1,17 +1,17 @@
 import React from 'react';
-import { LoginWrapper } from './styles';
+import * as S from './styles';
 import { Input } from '../SignUp/Styles';
 import { Link } from 'react-router-dom';
 import goFirstPage from '../../img/Login/goFirstPage.png';
 
 const Login = () => {
     return (
-        <LoginWrapper>
-            <div>
+        <S.LoginWrapper>
+            <S.ModalBlock>
                 <Link to="/landing">
                     <img src={goFirstPage} alt="처음페이지로"/>
                 </Link>
-                <main>
+                <S.LoginBlock>
                     <h3>로그인 하세요</h3>
                     <h5>로그인 후 스퀴커를 이용하실 수 있습니다.</h5>
                     <Input>
@@ -38,12 +38,12 @@ const Login = () => {
                             <span></span>
                         </p>
                     </div>
-                </main>
+                </S.LoginBlock>
                 <footer>
                     <button className="login">로그인</button>
                 </footer>
-            </div>
-        </LoginWrapper>
+            </S.ModalBlock>
+        </S.LoginWrapper>
     );
 };
 
