@@ -8,9 +8,9 @@ const Main = ({ match }) => {
         <>
             <Header />
             {
-                ((match.params.category === 'home' && (<Home />)) || '') ||
-                ((match.params.category === 'search' && (<Home />)) || '') ||
-                ((match.params.category === 'profile' && (<Home />)) || '')
+                (match.params.category === 'home' && <Home />) ||
+                (match.params.category === 'search' && <Home />) ||
+                (match.params.category === 'profile' && <Home />)
             }
         </>
     );
