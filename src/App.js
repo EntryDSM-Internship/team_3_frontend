@@ -4,12 +4,13 @@ import Main from './components/Main/Main';
 import Landing from './components/Landing/Landing';
 import { Route } from 'react-router-dom';
 
+const isLoginIng = true;
 const App = () => {
   return (
     <>
-      <Route exact path="/main/:category?" component={Main} />
+      <Route exact path={isLoginIng === true ?  "/:category?" : false} component={Main} />
       <Route exact path="/signup" component={SignUp}/>
-      <Route exact path={["/landing", "/"]} component={Landing} />
+      <Route exact path={isLoginIng === true ? "/landing" : "/"} component={Landing} />
     </>
   );
 };
