@@ -1,5 +1,5 @@
 import React from 'react';
-import { BoardItemWrapper, ProfileBlock, ShareBoardWrapper, adjustHeight } from './styles';
+import * as S from './styles';
 import ProfileImage from '../../../img/Main/ProfileImage.png';
 import Image from '../../../img/Main/Image.png';
 import BoardContent from './BoardContent';
@@ -72,31 +72,39 @@ const borderList = [
     
 ]
 
+function adjustHeight() {
+    var textEle = document.querySelector('textarea');
+    textEle.style.height = 'auto';
+    var textEleHeight = textEle.scrollHeight;
+    console.log(textEleHeight);
+    textEle.style.height = `${textEleHeight - 19}px`;
+};
+
 const BoardItem = () => {
     return (
         <>
-            <BoardItemWrapper>
-                <ProfileBlock>
+            <S.BoardItemWrapper>
+                <S.ProfileBlock>
                     <img src={ProfileImage} alt="프로필 이미지" />
-                </ProfileBlock>
-                <ShareBoardWrapper>
+                </S.ProfileBlock>
+                <S.ShareBoardWrapper>
                     <textarea onKeyUp={adjustHeight} placeholder="자신의 일을 공유해보세요"/>
                     <div>
                         <label htmlFor="upload_image"><img src={Image} alt="이미지" /></label>
                         <input type="file" id="upload_image" />
                         <button>게시</button>
                     </div>
-                </ShareBoardWrapper>
-            </BoardItemWrapper>
+                </S.ShareBoardWrapper>
+            </S.BoardItemWrapper>
             {
                 borderList.map(info =>
                     (
-                        <BoardItemWrapper>
-                            <ProfileBlock>
+                        <S.BoardItemWrapper>
+                            <S.ProfileBlock>
                                 <img src={ProfileImage} alt="프로필 이미지" />
-                            </ProfileBlock>
+                            </S.ProfileBlock>
                             <BoardContent key={info.key} info={info} />
-                        </BoardItemWrapper>
+                        </S.BoardItemWrapper>
                     )
                 )
             }

@@ -1,20 +1,20 @@
 import React from 'react';
-import { HomeWrapper, MainWrapper, BoardWrapper, SideWrapper } from './styles';
+import * as S from './styles';
 import BoardItem from './BoardItem';
 import ViewMore from './ViewMore';
 
 const Home = () => {
     return (
-        <HomeWrapper>
-            <MainWrapper>
-                <BoardWrapper>
+        <S.HomeWrapper>
+            <S.MainWrapper>
+                <S.BoardWrapper>
                     <BoardItem />
-                </BoardWrapper>
-                <SideWrapper>
+                </S.BoardWrapper>
+                <S.SideWrapper>
                     <ViewMore />
-                </SideWrapper>
-            </MainWrapper>
-        </HomeWrapper>
+                </S.SideWrapper>
+            </S.MainWrapper>
+        </S.HomeWrapper>
     );
 };
 
