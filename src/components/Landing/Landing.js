@@ -23,8 +23,8 @@ const Landing = () => {
                         <img src={messeage} alt="메시지" />
                         <p>다른 사람의 일에 자신의 의견을 올려보세요.</p>
                     </GuideContent>
-                    <Link to="/login" className="login">로그인</Link>
-                    <Link to="/signup" className="sign-up">가입하기</Link>
+                    <Link to="/auth/login" className="login">로그인</Link>
+                    <Link to="/auth/signup" className="sign-up">가입하기</Link>
                 </Main>
             </MainBlock>
         </LandingWrapper>
