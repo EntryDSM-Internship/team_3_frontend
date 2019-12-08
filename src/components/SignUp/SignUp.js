@@ -198,10 +198,10 @@ const SignUp = () => {
     return (
       <div className="main">
         <div className="signUp">
-          <Link to="login">
+          <Link to="/landing">
             <img
               className="back"
-              src={require("../../img/SignUp/goToLogin.png")}
+              src={require("../../img/SignUp/goFirstPage.png")}
               alt="뒤로가기"
             />
           </Link>

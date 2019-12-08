@@ -4,7 +4,9 @@ import { Input } from '../SignUp/Styles';
 import { Link } from 'react-router-dom';
 import goFirstPage from '../../img/Login/goFirstPage.png';
 
-const Login = () => {
+const Login = ({ isLogin, setIsLogin }) => {
+    console.log(isLogin);
+    console.log(setIsLogin);
     return (
         <S.LoginWrapper>
             <S.ModalBlock>
