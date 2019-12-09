@@ -75,7 +75,7 @@ const Header = () => {
         <Wrapper>
             <main>
                 <div>
-                    <NavLink to="/home">
+                    <NavLink to="/">
                         <img src={Icon} alt="아이콘" />
                     </NavLink>
                 </div>
