@@ -40,7 +40,7 @@ const Login = ({ isLogin, setIsLogin }) => {
                 "access_token": res.data.access_token,
                 "refresh_token": res.data.refresh_token
             });
-            history.push('/');
+            history.push('/home');
         }).catch(e => {
             setInputState(['잘못된 이메일입니다.', '잘못된 비밀번호입니다.']);
             console.log(loginInfo);
