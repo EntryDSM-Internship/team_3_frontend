@@ -6,16 +6,14 @@ import CheckToken from '../../components/CheckToken/CheckToken';
 
 const Main = ({ isLogin, setIsLogin }) => {
     let { category } = useParams();
-    console.log(isLogin);
-    console.log(category);
     return (
-        <CheckToken accessToken={isLogin["access_token"]}>
+        <CheckToken accessToken={isLogin.access_token}>
             <Header />
             {
                 (category === 'home' && <Home />) ||
                 (category === 'search' && <Home />) ||
                 (category === 'profile' && <Home />) ||
-                (true && (category === undefined && <Home/>))
+                (category === undefined && <Home/>)
             }
         </CheckToken>
     );
