@@ -24,7 +24,7 @@ const SignUp = () => {
       second: 0,
     });
     const URL =
-      "http://52.79.228.100";
+      "http://13.125.249.23";
     const [page, setPage] = useState(1);
     const [code, setCode] = useState('');
     const [password, setPassword] = useState('');
@@ -112,7 +112,8 @@ const SignUp = () => {
           info.profileImg.append('password', info.password);
           info.profileImg.append('username', info.username);
           info.profileImg.append('introduction', info.introduction);
-          const a = document.cookie.split(';')[1].split('=')[1];
+          console.log()
+          const a = document.cookie.split('=')[1];
 
           axios.post(`${URL}/auth/signup`, info.profileImg, {
             headers: {
