@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Input = styled.div`
+export const UserInfoInput = styled.div`
     display: flex;
     flex-direction: column;
     padding: 8px 8px 0 8px;

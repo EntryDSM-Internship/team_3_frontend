@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Input, Contents } from './Styles';
+import { UserInfoInput, Contents } from './Styles';
 
 const VerificationCode = ({ Code, setCode, InputState, time, setTime, onSubmit }) => {
   const didMountRef = useRef(false);
@@ -47,7 +47,7 @@ const VerificationCode = ({ Code, setCode, InputState, time, setTime, onSubmit }
         <Contents>
           <h3>인증코드를 입력하세요.</h3>
           <h5>이전 단계에서 입력한 이메일로 인증코드를 발송했습니다.</h5>
-          <Input>
+          <UserInfoInput>
             <label htmlFor="code">인증번호</label>
             <div>
               <form onSubmit={onSubmit}>
@@ -56,7 +56,7 @@ const VerificationCode = ({ Code, setCode, InputState, time, setTime, onSubmit }
               <div><span>{time.minute}</span><span>분&nbsp;</span>
     <span>{time.second === 0 ? '00' : time.second}</span><span>초</span></div>
             </div>
-          </Input>
+          </UserInfoInput>
           <div className="sentence-state">
     <span>{InputState.state[0]}</span>
             <p>
