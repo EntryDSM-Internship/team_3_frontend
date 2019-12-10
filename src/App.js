@@ -12,17 +12,19 @@ const App = () => {
   });
   return (
     <>
-      <Route exact path="/auth/login" render={() => <Login isLogin={isLogin} setIsLogin={setIsLogin} />} />
-      <Route exact path="/auth/signup" component={SignUp} />
-      <Route exact path="/landing" render={() => <Landing isLogin={isLogin} setIsLogin={setIsLogin} />} />
       <Switch>
-        {
+        <Route exact path="/auth/login" render={() => <Login isLogin={isLogin} setIsLogin={setIsLogin} />} />
+        <Route exact path="/auth/signup" component={SignUp} />
+        <Route exact path="/landing" render={() => <Landing isLogin={isLogin} setIsLogin={setIsLogin} />} />
+        {/* {
           (isLogin.access_token === "" && (<Route exact path="/" render={() => <Landing isLogin={isLogin} setIsLogin={setIsLogin} />} />)) ||
           (<Route exact path={["/:category", "/"]} render={() => <Main isLogin={isLogin} setIsLogin={setIsLogin} />} />)
-        }  
+        }   */}
+        <Route path={"/:category"} render={() => <Main isLogin={isLogin} setIsLogin={setIsLogin} />} />
+        <Route exact path="/" render={() => <><Main isLogin={isLogin} setIsLogin={setIsLogin} /><Landing isLogin={isLogin} setIsLogin={setIsLogin} /></>} />
       </Switch>
     
-      <Route render={() => (<h1>Error</h1>)} />
+      {/* <Route render={() => (<h1>Error</h1>)} /> */}
     </>
   );
 };
