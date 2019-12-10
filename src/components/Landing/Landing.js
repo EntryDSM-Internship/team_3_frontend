@@ -7,7 +7,6 @@ import search from '../../img/Landing/search.png';
 import CheckToken from '../../components/CheckToken/CheckToken';
 
 const Landing = ({ isLogin, setIsLogin }) => {
-    console.log(isLogin);
     return (
         <CheckToken category="landing" refreshToken={isLogin.refreh_token}>
             <LandingWrapper>
@@ -31,7 +30,7 @@ const Landing = ({ isLogin, setIsLogin }) => {
                     </Main>
                 </MainBlock>
             </LandingWrapper>
-        // </CheckToken>
+        </CheckToken>
     );
 };
 
