@@ -1,15 +1,19 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-const CheckToken = ({ accessToken, children }) => {
+const CheckToken = ({ category, accessToken, children }) => {
     const { push } = useHistory();
-    console.log(accessToken);
     useEffect(() => {
+        console.log(`useEffect!!${category}`);
         if (accessToken === "") {
-            push("/");
+            push("/");  
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps 
     }, [accessToken]);
-    return children;
+    if ((accessToken !== "" && category === "main") || (accessToken === "" && category === "landing" ))  {
+            return children;
+    }
+    return (<></>);
 };
-
+    
 export default CheckToken;
