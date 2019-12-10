@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as S from './styles';
-import { Input } from '../SignUp/Styles';
+import { UserInfoInput } from '../SignUp/Styles';
 import { Link, useHistory } from 'react-router-dom';
 import goFirstPage from '../../img/Login/goFirstPage.png';
 import Axios from 'axios';
@@ -60,19 +60,19 @@ const Login = ({ isLogin, setIsLogin }) => {
                 <S.LoginBlock>
                     <h3>로그인 하세요</h3>
                     <h5>로그인 후 스퀴커를 이용하실 수 있습니다.</h5>
-                    <Input>
+                    <UserInfoInput>
                         <label htmlFor="email">이메일</label>
                         <input type="text" maxLength="30" id="email" onChange={handleEmail} value={loginInfo.email} />
-                    </Input>
+                    </UserInfoInput>
                     <div className="sentence-state">
                         <span>{inputState[0]}</span>
                     </div>
-                    <Input>
+                    <UserInfoInput>
                         <label htmlFor="password">비밀번호</label>
                         <form onSubmit={onSubmit}>
                             <input type="password" id="password" value={loginInfo.password} onChange={handlePassword}/>
                         </form>
-                    </Input>
+                    </UserInfoInput>
                     <div className="sentence-state">
                         <span>{inputState[1]}</span>
                     </div>
