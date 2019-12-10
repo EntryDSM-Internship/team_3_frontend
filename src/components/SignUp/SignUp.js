@@ -72,7 +72,7 @@ const SignUp = () => {
             }
             //KJHBNMJH
           }).then(res => {
-            document.cookie = `access_token=${res.data.token}`;
+            localStorage.setItem('access_token', res.data.token);
               setPage(page + 1);
             }).catch(err => {
               setPage(page + 1);
@@ -113,11 +113,11 @@ const SignUp = () => {
           info.profileImg.append('username', info.username);
           info.profileImg.append('introduction', info.introduction);
           console.log()
-          const a = document.cookie.split('=')[1];
+          const access_token = localStorage.getItem('access_token');
 
           axios.post(`${URL}/auth/signup`, info.profileImg, {
             headers: {
-              'Authorization': a,
+              'Authorization': access_token,
               'Content-Type': 'multipart/form-data'
             }
           })
