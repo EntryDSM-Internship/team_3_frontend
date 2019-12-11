@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as S from './styles';
-import { UserInfoInput } from '../SignUp/Styles';
+import { InputWrapper } from "../Common/Common";
 import { Link, useHistory } from 'react-router-dom';
 import goFirstPage from '../../img/Login/goFirstPage.png';
 import Axios from 'axios';
@@ -54,36 +54,49 @@ const Login = ({ isLogin, setIsLogin }) => {
         '', ''
     ]);
     return (
-        <S.LoginWrapper>
-            <S.ModalBlock>
-                <Link to="/">
-                    <img src={goFirstPage} alt="처음페이지로"/>
-                </Link>
-                <S.LoginBlock>
-                    <h3>로그인 하세요</h3>
-                    <h5>로그인 후 스퀴커를 이용하실 수 있습니다.</h5>
-                    <UserInfoInput>
-                        <label htmlFor="email">이메일</label>
-                        <input type="text" maxLength="30" id="email" onChange={handleEmail} value={loginInfo.email} />
-                    </UserInfoInput>
-                    <div className="sentence-state">
-                        <span>{inputState[0]}</span>
-                    </div>
-                    <UserInfoInput>
-                        <label htmlFor="password">비밀번호</label>
-                        <form onSubmit={onSubmit}>
-                            <input type="password" id="password" value={loginInfo.password} onChange={handlePassword}/>
-                        </form>
-                    </UserInfoInput>
-                    <div className="sentence-state">
-                        <span>{inputState[1]}</span>
-                    </div>
-                </S.LoginBlock>
-                <footer>
-                    <button className="login" onClick={onSubmit}>로그인</button>
-                </footer>
-            </S.ModalBlock>
-        </S.LoginWrapper>
+      <S.LoginWrapper>
+        <S.ModalBlock>
+          <Link to="/">
+            <img src={goFirstPage} alt="처음페이지로" />
+          </Link>
+          <S.LoginBlock>
+            <h3>로그인 하세요</h3>
+            <h5>로그인 후 스퀴커를 이용하실 수 있습니다.</h5>
+            <InputWrapper>
+              <label htmlFor="email">이메일</label>
+              <input
+                type="text"
+                maxLength="30"
+                id="email"
+                onChange={handleEmail}
+                value={loginInfo.email}
+              />
+            </InputWrapper>
+            <div className="sentence-state">
+              <span>{inputState[0]}</span>
+            </div>
+            <InputWrapper>
+              <label htmlFor="password">비밀번호</label>
+              <form onSubmit={onSubmit}>
+                <input
+                  type="password"
+                  id="password"
+                  value={loginInfo.password}
+                  onChange={handlePassword}
+                />
+              </form>
+            </InputWrapper>
+            <div className="sentence-state">
+              <span>{inputState[1]}</span>
+            </div>
+          </S.LoginBlock>
+          <footer>
+            <button className="login" onClick={onSubmit}>
+              로그인
+            </button>
+          </footer>
+        </S.ModalBlock>
+      </S.LoginWrapper>
     );
 };
 
