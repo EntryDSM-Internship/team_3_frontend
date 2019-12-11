@@ -1,6 +1,6 @@
 import React from 'react';
-import { Contents, UserInfoInput } from './Styles';
-
+import { Contents } from './Styles';
+import { InputWrapper } from "../Common/Common";
 const Introduce = ({ info, setInfo, onSubmit }) => {
     const onChange = (e) => {
         console.log(e.target.value);
@@ -14,7 +14,7 @@ const Introduce = ({ info, setInfo, onSubmit }) => {
         <Contents>
           <h3>한 줄 소개를 입력하세요.</h3>
           <h5>프로필에 표시할 한 줄 소개를 입력하세요.</h5>
-          <UserInfoInput>
+          <InputWrapper>
             <label htmlFor="introduction">한 줄 소개</label>
             <form onSubmit={onSubmit}>
               <input
@@ -26,7 +26,7 @@ const Introduce = ({ info, setInfo, onSubmit }) => {
             />
             </form>
             
-          </UserInfoInput>
+          </InputWrapper>
           <div className="sentence-state">
             <span></span>
             <p>
