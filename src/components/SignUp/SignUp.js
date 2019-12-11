@@ -122,8 +122,10 @@ const SignUp = () => {
             }
           })
           .then(res => {
+            localStorage.setItem('access_token', "");
             setPage(page + 1);
           }).catch(err => {
+            localStorage.setItem('access_token', "");
             setInputState({
               state: ["잘못된 인증코드입니다."]
             });
