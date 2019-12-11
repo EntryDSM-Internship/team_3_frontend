@@ -40,6 +40,8 @@ const Login = ({ isLogin, setIsLogin }) => {
                 "access_token": res.data.access_token,
                 "refresh_token": res.data.refresh_token
             });
+            localStorage.setItem("access_token", res.data.access_token);
+            localStorage.setItem("refresh_token", res.data.refresh_token);
             history.push('/home');
         }).catch(e => {
             setInputState(['잘못된 이메일입니다.', '잘못된 비밀번호입니다.']);
