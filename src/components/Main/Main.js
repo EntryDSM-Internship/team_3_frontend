@@ -1,19 +1,33 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import Header from './Header';
 import Home from './Home/Home';
+// import DetailPost from './DetailPost/DetailPost';
+import CheckToken from '../../components/CheckToken/CheckToken';
+// import ViewMore from './ViewMore';
+import queryString from 'query-string';
+// import * as S from './styles';
 
-const Main = ({ match }) => {
-    console.log(match.params.category);
+const Main = ({ location, isLogin, setIsLogin }) => {
+    let { category } = useParams();
+    if (category === 'post')
+        var query = queryString.parse(location.search);
     return (
-        <>
+        <CheckToken category="main" refreshToken={isLogin.refresh_token}>
             <Header />
-            {
-                (match.params.category === 'home' && <Home />) ||
-                (match.params.category === 'search' && <Home />) ||
-                (match.params.category === 'profile' && <Home />) ||
-                (true && (match.params.category === undefined && <Home/>))
-            }
-        </>
+            {/* <S.HomeWrapper> */}
+                {/* <S.MainWrapper> */}
+                    {
+                        // (category === 'post' && <DetailPost query={query} />) ||
+                        (category === 'home' && <Home />) ||
+                        (category === 'search' && <Home />) ||
+                        (category === 'profile' && <Home />) ||
+                        (category === undefined && <Home />)
+                    }
+                    {/* <ViewMore /> */}
+                {/* </S.MainWrapper>        */}
+            {/* </S.HomeWrapper>  */}
+        </CheckToken>
     );
 };
 
