@@ -76,9 +76,8 @@ export const HomeWrapper = styled.div`
 
 export const MainWrapper = styled.div`
     display: flex;
-    width: auto;
+    width: 1170px;
     height: 100%;
-    max-width: 1140px;
     margin: 0 auto;
     background-color: #ffffff;
 `;
