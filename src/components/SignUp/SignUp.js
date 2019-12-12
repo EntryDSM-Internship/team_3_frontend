@@ -24,7 +24,7 @@ const SignUp = () => {
       second: 0,
     });
     const URL =
-      "http://52.79.228.100";
+      "http://13.125.249.23";
     const [page, setPage] = useState(1);
     const [code, setCode] = useState('');
     const [password, setPassword] = useState('');
@@ -72,7 +72,7 @@ const SignUp = () => {
             }
             //KJHBNMJH
           }).then(res => {
-            document.cookie = `access_token=${res.data.token}`;
+            localStorage.setItem('access_token', res.data.token);
               setPage(page + 1);
             }).catch(err => {
               setPage(page + 1);
@@ -112,17 +112,20 @@ const SignUp = () => {
           info.profileImg.append('password', info.password);
           info.profileImg.append('username', info.username);
           info.profileImg.append('introduction', info.introduction);
-          const a = document.cookie.split(';')[1].split('=')[1];
+          console.log()
+          const access_token = localStorage.getItem('access_token');
 
           axios.post(`${URL}/auth/signup`, info.profileImg, {
             headers: {
-              'Authorization': a,
+              'Authorization': access_token,
               'Content-Type': 'multipart/form-data'
             }
           })
           .then(res => {
+            localStorage.setItem('access_token', "");
             setPage(page + 1);
           }).catch(err => {
+            localStorage.setItem('access_token', "");
             setInputState({
               state: ["잘못된 인증코드입니다."]
             });

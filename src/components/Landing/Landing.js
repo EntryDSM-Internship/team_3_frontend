@@ -4,8 +4,9 @@ import { LandingWrapper, MainBlock, Main, GuideContent } from './styles';
 import messeage from '../../img/Landing/messeage.png';
 import people from '../../img/Landing/people.png';
 import search from '../../img/Landing/search.png';
+import CheckToken from '../../components/CheckToken/CheckToken';
 
-const Landing = () => {
+const Landing = ({ isLogin, setIsLogin }) => {
     return (
         <CheckToken category="landing" refreshToken={isLogin.refreh_token}>
             <LandingWrapper>

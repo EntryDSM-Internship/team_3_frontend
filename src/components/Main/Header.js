@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Icon from '../../img/Main/MainIcon.png';
@@ -75,7 +75,7 @@ const Header = () => {
         <Wrapper>
             <main>
                 <div>
-                    <NavLink to="/home">
+                    <NavLink to="/">
                         <img src={Icon} alt="아이콘" />
                     </NavLink>
                 </div>

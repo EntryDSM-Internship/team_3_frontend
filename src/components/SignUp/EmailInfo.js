@@ -1,5 +1,6 @@
 import React from 'react';
-import { Contents, Input } from './Styles';
+import { Contents } from './Styles';
+import { InputWrapper } from '../Common/Common';
 
 const EmailInfo = ({ Info, setInfo, InputState, onSubmit }) => {
     
@@ -14,12 +15,12 @@ const EmailInfo = ({ Info, setInfo, InputState, onSubmit }) => {
         <Contents>
           <h3>계정을 생성하세요</h3>
           <h5>로그인 시 이용할 이메일을 입력하세요.</h5>
-          <Input>
+          <InputWrapper>
             <label htmlFor="email">이메일</label>
             <form onSubmit={onSubmit}>
               <input type="text" value={Info.email} onChange={onChange} maxLength="30" id="email" />
             </form>
-          </Input>
+          </InputWrapper>
           <div className="sentence-state">
             <span>{InputState.state[0]}</span>
             <p>
