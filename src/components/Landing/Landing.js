@@ -6,9 +6,9 @@ import people from '../../img/Landing/people.png';
 import search from '../../img/Landing/search.png';
 import CheckToken from '../../components/CheckToken/CheckToken';
 
-const Landing = ({ isLogin, setIsLogin }) => {
+const Landing = ({ alertOn, category, token, setToken }) => {
     return (
-        <CheckToken category="landing" refreshToken={isLogin.refreh_token}>
+        <CheckToken alertOn={alertOn} category={category} token={token} setToken={setToken}>
             <LandingWrapper>
                 <MainBlock>
                     <Main>
