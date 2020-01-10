@@ -1,68 +1,94 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 3팀 Squeaker
 
-## Available Scripts
+#### 목차
 
-In the project directory, you can run:
+1. [개요](#개요)
+2. [의의](#의의)
+3. [팀원 및 역할](#팀원-및-역할)
+4. [기술 스택](#기술-스택)
+5. [서비스 기능](#서비스-기능)
+   - [회원](#회원)
+   - [프로필](#프로필)
+   - [타임라인](#타임라인)
+   - [게시물](#게시물)
+   - [팔로우](#팔로우)
+   - [검색](#검색)
 
-### `yarn start`
+## 개요
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+기존에 있는 SNS 서비스인 트위터를 모티브로 한 SNS 서비스를 구현하는 프로젝트
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## 의의
 
-### `yarn test`
+- 팀원과의 협업을 통한 협업 능력 향상
+- 개발 과정에서 현재 자신의 전공 기량 확인
+- 개발을 하면서 새로운 기술 습득
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 팀원 및 역할
 
-### `yarn build`
+| 이름   | 역할     |
+| ------ | -------- |
+| 김대웅 | Backend  |
+| 김해건 | Design   |
+| 이우찬 | Frontend |
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 기술 스택
 
-### `yarn eject`
+1. Backend
+   - 언어 : JavaScript(Node.js)
+   - 배포 환경 : Amazon Web Service EC2
+   - 데이터베이스 : mysql, redis
+   - 인증 : JWT
+2. Frontend
+   
+   - 언어 : HTML, CSS, JavaScript
+   
+     
+   
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 서비스 기능
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### 회원
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- 회원가입
+  - 이메일 기입(최대 30자)
+  - 이메일 인증
+  - 비밀번호 기입(영문, 숫자 조합   최소 8자)
+  - 사용자 닉네임 기입(최대 12자,  중복 O)
+  - 프로필 사진
+- 로그인
+  - 이메일
+  - 비밀번호
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### 프로필
 
-## Learn More
+- 프로필 사진
+- 사용자 닉네임
+- 팔로워, 팔로잉 수
+- 사용자의 이메일
+- 사용자의 타임라인
+  - 무한 스크롤 형식(스크롤 당 10개씩)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### 타임라인
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 무한 스크롤 형식(스크롤 당 10개씩)
+  - 팔로우 한 사람들과 자신의 게시물 표시
+  - 자신의 게시물 삭제 가능
 
-### Code Splitting
+#### 게시물
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- 게시물 작성(본문 : 최대 256자, 사진 : 최대 4장)
+- 게시물 삭제
+- 게시물 좋아요
+- 댓글 작성(최대 256자, 사진 X)
 
-### Analyzing the Bundle Size
+#### 팔로우
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- 팔로우
+- 팔로우 취소
 
-### Making a Progressive Web App
+#### 검색
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- 사용자 검색(사용자 닉네임으로 검색)
