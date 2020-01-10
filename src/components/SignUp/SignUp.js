@@ -13,6 +13,11 @@ import Success from './Success';
 const SignUp = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
+      if (page === 4) {
+        var chk_num = e.target.childNodes[0].value.search(/[0-9]/g);
+        var chk_eng = e.target.childNodes[0].value.search(/[a-z]/ig);
+        if (chk_num < 0 || chk_eng < 0) alert('비밀번호가 조건에 맞지 않습니다');
+      }
       goNextPage();
     }
     const error = function () {
@@ -23,6 +28,7 @@ const SignUp = () => {
       minute: 3,
       second: 0,
     });
+    const [countDown, setCountDown] = useState(false);
     const URL =
       "http://13.125.249.23";
     const [page, setPage] = useState(1);
@@ -39,6 +45,41 @@ const SignUp = () => {
       profileImg: null
     });
     const pageList = [1, 2, 3, 4, 5, 6, 7];
+  const useTimer = (m, s) => {
+    let minute = m, second = s;
+    const timer = setInterval(() => {
+      if (minute === 0 && second === 0) {
+        clearInterval(timer);
+      } else if (second === 0) {
+        second += 59;
+        minute -= 1;
+        setTime(time => {
+          return {
+            minute: time.minute - 1,
+            second: time.second + 59
+          }
+        });
+      } else {
+        second -= 1;
+        setTime(time => {
+          return {
+            minute: time.minute,
+            second: time.second - 1,
+          }
+        });
+      }
+    }, 1000);
+
+    return timer;
+  }
+  useEffect(() => {
+    if (countDown) {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      const timer = useTimer(time.minute, time.second);
+      return () => clearInterval(timer);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [countDown]);
     const goNextPage = () => {
       setInputState({
         state: []
@@ -52,13 +93,16 @@ const SignUp = () => {
               email: info.email
             }
           }).then(res => {
-            console.log(res);
+            setCountDown(!countDown);
+            setTime({
+              minute: 3,
+              second: 0,
+            });
               setPage(page + 1);
             }).catch(err => {
               setInputState({
                 state: ["잘못된 형식의 이메일입니다."]
               });
-              console.log(err);
               error();
             });
           break;
@@ -70,12 +114,10 @@ const SignUp = () => {
               authcode: code,
               email: info.email
             }
-            //KJHBNMJH
           }).then(res => {
             localStorage.setItem('access_token', res.data.token);
               setPage(page + 1);
             }).catch(err => {
-              setPage(page + 1);
                setInputState({
                  state: ["잘못된 인증코드입니다."]
                });
@@ -86,9 +128,18 @@ const SignUp = () => {
           setPage(page + 1);
           break;
         case 4:
-          if (info.password === password)
+          var chk_num = password.search(/[0-9]/g);
+          var chk_eng = password.search(/[a-z]/ig);
+          var regExpId = /^[0-9a-z]{8, }+$/;
+          if (regExpId.test(password) && info.password === password)
             setPage(page + 1);
-          else {
+          else if (chk_num < 0 || chk_eng < 0)
+            setInputState({
+              state: [
+                "비밀번호가 조건에 일치하지 않습니다."
+              ]
+            });
+          else if (info.password !== password) {
             setInputState({
               state: [
                 "입력하신 비밀번호와 일치하지 않습니다."
@@ -108,29 +159,28 @@ const SignUp = () => {
           setPage(page + 1);
           break;
         case 6:
-          info.profileImg.append('email', info.email);
-          info.profileImg.append('password', info.password);
-          info.profileImg.append('username', info.username);
-          info.profileImg.append('introduction', info.introduction);
-          console.log()
-          const access_token = localStorage.getItem('access_token');
-
-          axios.post(`${URL}/auth/signup`, info.profileImg, {
-            headers: {
-              'Authorization': access_token,
-              'Content-Type': 'multipart/form-data'
-            }
-          })
-          .then(res => {
-            localStorage.setItem('access_token', "");
-            setPage(page + 1);
-          }).catch(err => {
-            localStorage.setItem('access_token', "");
-            setInputState({
-              state: ["잘못된 인증코드입니다."]
+            info.profileImg.append('email', info.email);
+            info.profileImg.append('password', info.password);
+            info.profileImg.append('username', info.username);
+            info.profileImg.append('introduction', info.introduction);
+            const access_token = localStorage.getItem('access_token');
+  
+            axios.post(`${URL}/auth/signup`, info.profileImg, {
+              headers: {
+                'Authorization': access_token,
+                'Content-Type': 'multipart/form-data'
+              }
+            })
+            .then(res => {
+              localStorage.setItem('access_token', "");
+              setPage(page + 1);
+            }).catch(err => {
+              localStorage.setItem('access_token', "");
+              setInputState({
+                state: ["회원가입에 실패하였습니다."]
+              });
+              error();
             });
-            error();
-          });
           break;
         case 7:
           setPage(page + 1); 
@@ -233,6 +283,8 @@ const SignUp = () => {
                   time={time}
                   setTime={setTime}
                 onSubmit={handleSubmit}
+                countDown={countDown}
+                setCountDown={setCountDown}
                 />
               )) ||
               (page === 3 && (
@@ -258,9 +310,10 @@ const SignUp = () => {
                 <ProfileImage
                   info={info}
                   setInfo={setInfo}
+                  setCountDown={setCountDown}
                 />
               )) ||
-              (page === 6 && <Introduce setInfo={setInfo} info={info} />) ||
+              (page === 6 && <Introduce setInfo={setInfo} info={info} onSubmit={handleSubmit} />) ||
               (page === 7 && (
                 <Success
                   Info={info}
@@ -269,7 +322,9 @@ const SignUp = () => {
                   setInputstate={setInputState}
                 onSubmit={handleSubmit}
                 />
-              ))}
+              )) 
+              || (!pageList.includes(page) && window.location.reload())
+            }
           </div>
           <div className="footer">
             <button
@@ -286,7 +341,7 @@ const SignUp = () => {
                 ></div>
               ))}
             </div>
-            <Link to={page === 7 ? "/home" : "signup"}>
+            <Link to={page === 7 ? "/" : "signup"}>
               <button onClick={goNextPage} className="nextBtn">
                 다음
               </button>
