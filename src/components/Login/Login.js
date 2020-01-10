@@ -5,18 +5,17 @@ import { Link, useHistory } from 'react-router-dom';
 import goFirstPage from '../../img/Login/goFirstPage.png';
 import Axios from 'axios';
 
-const Login = ({ isLogin, setIsLogin }) => {
+const Login = ({ token, setToken }) => {
     const [loginInfo, setLoginInfo] = useState({
         email: '',
         password: ''
     });
-
     const handleEmail = (e) => {
         setLoginInfo({
             ...loginInfo,
             email: e.target.value
         })
-    }
+    } 
     const handlePassword = (e) => {
         setLoginInfo({
             ...loginInfo,
@@ -24,7 +23,6 @@ const Login = ({ isLogin, setIsLogin }) => {
         })
     }
     const history = useHistory();
-
     const onSubmit = (e) => {
         e.preventDefault();
         const url = 'http://13.125.249.23';
@@ -34,21 +32,17 @@ const Login = ({ isLogin, setIsLogin }) => {
             data: {
                 email: loginInfo.email,
                 password: loginInfo.password
-            }
-        }).then(res => {
-            setIsLogin({
-                "access_token": res.data.access_token,
-                "refresh_token": res.data.refresh_token
-            });
-            localStorage.setItem("access_token", res.data.access_token);
-            localStorage.setItem("refresh_token", res.data.refresh_token);
-            history.push('/home');
-        }).catch(e => {
-            setInputState(['잘못된 이메일입니다.', '잘못된 비밀번호입니다.']);
-            console.log(loginInfo);
-            console.log(e);
-        })
-        
+            }}).then(res => {
+              localStorage.setItem('access_token', res.data.access_token);
+              localStorage.setItem('refresh_token', res.data.refresh_token);
+              setToken({
+                access_token: res.data.access_token,
+                refresh_token: res.data.refresh_token
+              });
+                history.push('/home');
+              }).catch(e => {
+              setInputState(['잘못된 이메일입니다.', '잘못된 비밀번호입니다.']);
+        });
     }
     const [inputState, setInputState] = useState([
         '', ''
