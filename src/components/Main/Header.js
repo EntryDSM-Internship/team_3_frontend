@@ -1,22 +1,10 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Icon from '../../img/Main/MainIcon.png';
+import axios from 'axios';
 
-const categories = [
-    {
-        name: 'home',
-        text: '홈',
-    },
-    {
-        name: 'search',
-        text: '검색',
-    },
-    {
-        name: 'profile',
-        text: '프로필',
-    },
-];
+
 const Category = styled(NavLink)`
     &.active {
         border-bottom: 4px solid #505BDA;
@@ -42,10 +30,10 @@ const Wrapper = styled.div`
             align-items: center;
             a {
                 img {
-                width: 28px;
+                    width: 28px;
                 height: 27px;
-                }
             }
+        }
         }
         ul {
             padding: 0;
@@ -68,9 +56,36 @@ const Wrapper = styled.div`
             }
         }
     }
-`;
+    `;
 
-const Header = () => {
+const Header = ({ token, userId, setUserId, setMyInfo }) => {
+    const [categories, setCategories] = useState([]);
+    useEffect(() => {
+        axios({
+            url: `http://13.125.249.23/userinfo`,
+            method: 'get',
+            headers: {
+                'Authorization': token.access_token,
+            }
+        }).then(res => {
+            setMyInfo(res.data.user);
+            setCategories([
+                {
+                    name: 'home',
+                    text: '홈',
+                },
+                {
+                    name: 'search',
+                    text: '검색',
+                },
+                {
+                    name: `user/${res.data.user.id}`,
+                    text: '프로필',
+                },
+            ])
+        }).catch(err => {
+        })
+    }, []);
     return (
         <Wrapper>
             <main>
@@ -82,9 +97,9 @@ const Header = () => {
                 <ul>
                     {categories.map(c => (
                         <Category
-                            key={c.name}
-                            activeClassName="active"
-                            to={c.name}
+                        key={c.name}
+                        activeClassName="active"
+                            to={`../${c.name}`}
                         >
                             {c.text}
                         </Category>

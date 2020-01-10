@@ -3,7 +3,6 @@ import { Contents } from './Styles';
 import { InputWrapper } from "../Common/Common";
 const Introduce = ({ info, setInfo, onSubmit }) => {
     const onChange = (e) => {
-        console.log(e.target.value);
         setInfo({
           ...info,
           introduction: e.target.value
@@ -25,7 +24,6 @@ const Introduce = ({ info, setInfo, onSubmit }) => {
               id="introduction"
             />
             </form>
-            
           </InputWrapper>
           <div className="sentence-state">
             <span></span>

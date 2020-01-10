@@ -32,3 +32,8 @@ export const DetailWrapper = styled.div`
            }
          }
        `;
+
+export const CommentInputWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
