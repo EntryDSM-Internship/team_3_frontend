@@ -1,9 +1,18 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import AddImage from '../../img/SignUp/Add.png';
 import img from '../../img/SignUp/profileImage.png';
 
-const ProfileImage = ({ info, setInfo }) => {
+const ProfileImage = ({ info, setInfo, setCountDown }) => {
+    setCountDown(false);
     const label = useRef();
+    useEffect(() => {
+      let frm = new FormData();
+      setInfo({
+        ...info,
+        profileImg: frm
+      });
+    }, []);
     const onChange = (e) => {
       let frm = new FormData();
       let photoFile = document.getElementById("upload-profile");
@@ -65,8 +74,8 @@ const ProfileImage = ({ info, setInfo }) => {
           <h3>프로필 사진을 등록하세요.</h3>
           <h5>프로필에 표시할 사진을 등록하세요.</h5>
           <div className="profile">
-            <label htmlFor="upload-profile" ref={label}><img src={require('../../img/SignUp/Add.png')} alt="추가버튼" / ></label>
-              <input type="file" id="upload-profile" onChange={onChange} />
+            <label htmlFor="upload-profile" ref={label}><img src={AddImage} alt="추가버튼" / ></label>
+              <input type="file" id="upload-profile" onChange={onChange}  />
           </div>
         </Profile>
       </>
