@@ -2,44 +2,13 @@ import React, { useEffect, useRef } from 'react';
 import { Contents } from './Styles';
 import { InputWrapper } from "../Common/Common";
 
-const VerificationCode = ({ Code, setCode, InputState, time, setTime, onSubmit }) => {
-  const didMountRef = useRef(false);
+const VerificationCode = ({ Code, setCode, InputState, countDown, setCountDown, time, setTime, onSubmit }) => {
   const onChange = (e) => {
     setCode(e.target.value);
   }
-  const useTimer = (m, s) => {
-    let minute = m, second = s;
-    const timer = setInterval(() => {
-      if (minute === 0 && second === 0) {
-        clearInterval(timer);
-      } else if (second === 0) {
-        second += 59;
-        minute -= 1;
-        setTime(time => {
-          return {
-            minute: time.minute - 1,
-            second: time.second + 59
-          }
-        });
-      } else {
-        second -= 1;
-        setTime(time => {
-          return {
-            minute: time.minute,
-            second: time.second - 1,
-          }
-        });
-      }
-    }, 1000);
-
-    return timer;
-  }
   useEffect(() => {
-    if (!didMountRef.current) {
-      didMountRef.current = true;
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      const timer = useTimer(time.minute, time.second);
-      return () => clearInterval(timer);
+    if (!countDown) {
+      setCountDown(!countDown);    
     }
   }, []);
     
