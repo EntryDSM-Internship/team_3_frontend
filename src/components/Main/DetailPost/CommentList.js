@@ -1,21 +1,24 @@
-import React from 'react';
+import React, { useState , useEffect } from 'react';
 import Comment from './Comment';
-const borderList = [
-  {
-    key: "1",
-    name: "김해건",
-    date: "2019년 9월 3일",
-    contents:
-      "답글답니당!",
-    likes: 1234,
-    comment: 234
-  }
-];
-const CommentList = () => {
+import axios from 'axios';
+const CommentList = ({ token, boardId }) => {
+  const [commentInfo, setCommentInfo] = useState([]);
+  useEffect(() => {
+    axios({
+      url: `http://13.125.249.23/post/${boardId}/comments`,
+      method: 'get',
+      headers: {
+        'Authorization': token.access_token,
+      }
+    }).then(res => {
+      setCommentInfo(res.data.comments)
+    }).catch(err => {
+    })  
+  }, []);
     return (
         <>
         {
-            borderList.map(info => (<Comment key={info.id} info={info} />))
+            commentInfo.map(info => (<Comment key={info.id} info={info} />))
         }
         </>
     );
