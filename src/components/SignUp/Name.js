@@ -12,7 +12,7 @@ const Name = ({ Info, setInfo, InputState, onSubmit }) => {
     return (
       <Contents>
         <h3>이름을 생성하세요</h3>
-        <h5>트위터에서 보여질 이름을 입력하세요.</h5>
+        <h5>스퀴커에서 보여질 이름을 입력하세요.</h5>
         <InputWrapper>
           <label htmlFor="name">이름</label>
           <form onSubmit={onSubmit}>
