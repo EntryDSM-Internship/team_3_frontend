@@ -94,10 +94,10 @@ const ViewMore = ({ history, token, myInfo }) => {
                     <div>
                         Team 3 <br/>
                         이우찬: Front - End<br />
-                        임용성: Back - End<br /><br />
+                        김대웅: Back - End<br /><br />
                         Team 4 <br/>
                         최이삭: Front - End<br />
-                        김대웅: Back - End<br /><br />
+                        임용성: Back - End<br /><br />
                         김해건: Design<br />
                     </div>
                     <li>
