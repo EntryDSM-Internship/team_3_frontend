@@ -4,7 +4,6 @@ import axios from 'axios';
 import BoardList from "./BoardList";
 
 const Home = ({ myInfo, token }) => {
-  console.log(token);
   const [page, setPage] = useState(0);
   const [boardList, setBoardList] = useState([]);
   const scrollBody = useRef();
