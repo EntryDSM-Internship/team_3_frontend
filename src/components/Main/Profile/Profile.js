@@ -103,7 +103,6 @@ const Profile = ({ myInfo, userId, setUserId, pathName, token }) => {
         });
     }, [page]);
     const onFollow = (e) => {
-        console.log(e.target.innerText);
         axios({
             url: `http://13.125.249.23/follow/${userId}`,
             method: `${e.target.innerText === '팔로우' ? 'post' : 'delete'}`,
@@ -141,7 +140,6 @@ const Profile = ({ myInfo, userId, setUserId, pathName, token }) => {
                     </div>
                     <main>
                         <div>
-                            {console.log(typeof profile.followers)}
                             <span>{profile.username}</span>
                             <p className="email">{profile.email}</p>
                             <p>{profile.introduction}</p>
