@@ -14,7 +14,6 @@ const UpdateProfile = ({ token, modalOn, setModalOn }) => {
 
     });
     const onChange = (e) => {
-        console.log(e.target);
         const keyName = '';
         profileInfo[keyName + e.target.id] = e.target.value;
         setProfileInfo({
